@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_resultItem_topImage">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/dummy_image"
+            android:id="@+id/iv_resultItem_backgImage"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_resultItem_address"
+            android:layout_alignParentTop="true"
+            android:text="Sample Address"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="15dp"
+            android:background="@color/colorGray"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_resultItem_rate"
+            android:gravity="bottom"
+            android:layout_below="@+id/tv_resultItem_address"
+            android:text="Sample Rate"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="140dp"
+            android:textSize="18dp"
+            android:background="@color/colorGray"
+            android:padding="10dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Sample Name"
+        android:id="@+id/tv_resultItem_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorDarkGray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Sample Description"
+        android:id="@+id/tv_resultItem_description"
+        android:layout_marginLeft="10dp"
+        android:textSize="18dp"
+        android:layout_marginBottom="40dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
+</LinearLayout>

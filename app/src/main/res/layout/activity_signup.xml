@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Social Login -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/ll_signup_socialLoginButtons">
+        <!-- Facebook -->
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/fb_icon"
+            android:background="@drawable/custombutton_facebook"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="9dp"
+            android:id="@+id/ib_signup_facebook"/>
+        <!-- Google.plus -->
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/googleplus_icon"
+            android:background="@drawable/custombutton_googleplus"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="9dp"
+            android:id="@+id/ib_signup_googleplus"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <!-- text: Login using email-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OR LOGIN USING EMAIL"
+        android:textColor="@color/colorDarkGray"
+        android:gravity="center"
+        android:layout_below="@+id/ll_signup_socialLoginButtons"
+        android:id="@+id/tv_signup_SignupEmailHeading"/>
+
+
+    <!-- Email form -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/tv_signup_SignupEmailHeading">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:id="@+id/et_signup_name"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:id="@+id/et_signup_email"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:id="@+id/et_signup_password"
+            android:password="true"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custombutton_loginsignup"
+            android:id="@+id/bt_signup_signup"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Forgot Password?"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/tv_signup_forgotPassword"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="By creating an account, you agree to Fittect's Terms of Services, Privacy Policy and Content Policies."
+        android:gravity="center"
+        android:textSize="11dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/tv_signup_disclaimer"/>
+
+
+</RelativeLayout>

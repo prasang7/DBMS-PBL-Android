@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Fittect</string>
+
+    <!-- String array for filter options in search activity -->
+    <string-array name="filter_options">
+        <item>More filter</item>
+        <item>filter 1</item>
+        <item>filter 2</item>
+        <item>filter 3</item>
+    </string-array>
+    
+</resources>
