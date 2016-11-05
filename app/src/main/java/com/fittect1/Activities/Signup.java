@@ -120,6 +120,9 @@ public class Signup extends AppCompatActivity {
         Toast.makeText(Signup.this, "Realm Initialised!", Toast.LENGTH_SHORT).show();
     }
 
+
+
+
     void facebookLogin() {
         Toast.makeText(Signup.this, "Login with facebook...", Toast.LENGTH_SHORT).show();
     }
