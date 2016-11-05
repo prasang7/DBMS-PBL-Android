@@ -78,6 +78,8 @@ public class Signup extends AppCompatActivity {
 
         myRealm.beginTransaction();
 
+        Toast.makeText(Signup.this, "Inserting data in Realm Database...", Toast.LENGTH_SHORT).show();
+
         User user_1 = myRealm.createObject(User.class);
 
         user_1.setName(name);
@@ -108,6 +110,24 @@ public class Signup extends AppCompatActivity {
         disclaimer = (TextView)findViewById(R.id.tv_signup_disclaimer);
     }
 
+    void initializeRealm() {
+        myRealm =
+                Realm.getInstance(
+                        new RealmConfiguration.Builder(getApplicationContext())
+                                .name("myRealm_1.realm")
+                                .build()
+                );
+        Toast.makeText(Signup.this, "Realm Initialised!", Toast.LENGTH_SHORT).show();
+    }
+
+    void facebookLogin() {
+        Toast.makeText(Signup.this, "Login with facebook...", Toast.LENGTH_SHORT).show();
+    }
+
+    void googlePlusLogin() {
+        Toast.makeText(Signup.this, "Login with Google Plus...", Toast.LENGTH_SHORT).show();
+    }
+
     void setFonts() {
         Typeface MontLight = Typeface.createFromAsset(getApplication().getAssets(), "Montserrat-Light.otf");
         Typeface MontUltraLight = Typeface.createFromAsset(getApplication().getAssets(), "Montserrat-UltraLight.otf");
@@ -120,24 +140,6 @@ public class Signup extends AppCompatActivity {
         forgotPassword.setTypeface(MontUltraLight);
         disclaimer.setTypeface(MontUltraLight);
     }
-
-    void initializeRealm() {
-        myRealm =
-                Realm.getInstance(
-                        new RealmConfiguration.Builder(getApplicationContext())
-                                .name("myRealm_1.realm")
-                                .build()
-                );
-    }
-
-    void facebookLogin() {
-        Toast.makeText(Signup.this, "Login with facebook...", Toast.LENGTH_SHORT).show();
-    }
-
-    void googlePlusLogin() {
-        Toast.makeText(Signup.this, "Login with Google Plus...", Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

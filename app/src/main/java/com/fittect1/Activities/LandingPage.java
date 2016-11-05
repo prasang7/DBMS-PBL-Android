@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fittect1.R;
@@ -19,6 +20,8 @@ import io.realm.RealmResults;
 public class LandingPage extends AppCompatActivity {
 
     Realm myRealm;
+
+    TextView tv_userdetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class LandingPage extends AppCompatActivity {
 
     void init() {
         setContentView(R.layout.activity_landingpage);
+        tv_userdetails = (TextView) findViewById(R.id.tv_landing_page_userdetails);
     }
 
 
@@ -43,10 +47,15 @@ public class LandingPage extends AppCompatActivity {
         RealmResults<User> results1 =
                 myRealm.where(User.class).findAll();
 
+        String userDetails = "";
+
         for(User c:results1) {
 
-            Toast.makeText(LandingPage.this, "NAME: " + c.getName(), Toast.LENGTH_SHORT).show();
+            userDetails = "";
+            userDetails = "Name: " + c.getName() + "\nEmail: " + c.getEmail();
         }
+
+        tv_userdetails.setText(userDetails);
     }
 
     void initializeRealm() {
