@@ -24,9 +24,14 @@ import com.bumptech.glide.Glide;
 import com.fittect1.R;
 import com.fittect1.ResultItem;
 import com.fittect1.ResultItemAdapter;
+import com.fittect1.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 /**
  * Created by prasang on 21/6/16.
@@ -71,6 +76,7 @@ public class SearchResult extends Activity implements AdapterView.OnItemSelected
             }
         }));
     }
+
 
     void init() {
         setContentView(R.layout.activity_search_results);

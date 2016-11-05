@@ -64,8 +64,6 @@ public class Signup extends AppCompatActivity {
 
     void signup() {
 
-        Toast.makeText(Signup.this, "Sign Up pressed!", Toast.LENGTH_SHORT).show();
-
         String s_name, s_email, s_pass;
         s_name = et_name.getText().toString();
         s_email = et_email.getText().toString();
@@ -87,6 +85,8 @@ public class Signup extends AppCompatActivity {
         user_1.setPassword(password);
 
         myRealm.commitTransaction();
+
+        Toast.makeText(Signup.this, "Data Inserted!", Toast.LENGTH_SHORT).show();
     }
 
     void init() {
@@ -125,7 +125,7 @@ public class Signup extends AppCompatActivity {
         myRealm =
                 Realm.getInstance(
                         new RealmConfiguration.Builder(getApplicationContext())
-                                .name("myOtherRealm.realm")
+                                .name("myRealm_1.realm")
                                 .build()
                 );
     }
