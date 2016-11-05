@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class LandingPage extends AppCompatActivity {
     Realm myRealm;
 
     TextView tv_userdetails;
+    Button bt_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +36,18 @@ public class LandingPage extends AppCompatActivity {
 
         showUserDetails();
 
-        // Right now, since we don't have UI of landing page, I'm starting the result activity directly!
-        //startActivity(new Intent(LandingPage.this, SearchResult.class));
+        bt_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LandingPage.this, SearchResult.class));
+            }
+        });
     }
 
     void init() {
         setContentView(R.layout.activity_landingpage);
         tv_userdetails = (TextView) findViewById(R.id.tv_landing_page_userdetails);
+        bt_next = (Button) findViewById(R.id.bt_landing_page_next);
     }
 
 
