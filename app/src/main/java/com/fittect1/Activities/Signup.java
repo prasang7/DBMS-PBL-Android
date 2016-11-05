@@ -15,6 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fittect1.R;
+import com.fittect1.model.User;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * Created by prasang on 20/6/16.
@@ -26,6 +30,8 @@ public class Signup extends AppCompatActivity {
     EditText et_name, et_email, et_password;
     Button bt_signup;
 
+    public Realm myRealm;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,20 +40,20 @@ public class Signup extends AppCompatActivity {
 
         setFonts();
 
+        initializeRealm();
+
         ib_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 facebookLogin();
             }
         });
-
         ib_googleplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 googlePlusLogin();
             }
         });
-
         bt_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,8 +63,30 @@ public class Signup extends AppCompatActivity {
     }
 
     void signup() {
+
         Toast.makeText(Signup.this, "Sign Up pressed!", Toast.LENGTH_SHORT).show();
+
+        String s_name, s_email, s_pass;
+        s_name = et_name.getText().toString();
+        s_email = et_email.getText().toString();
+        s_pass = et_password.getText().toString();
+
+        insertInRealm(s_name, s_email, s_pass);
+
         startActivity(new Intent(Signup.this, LandingPage.class));
+    }
+
+    void insertInRealm(String name, String email, String password) {
+
+        myRealm.beginTransaction();
+
+        User user_1 = myRealm.createObject(User.class);
+
+        user_1.setName(name);
+        user_1.setEmail(email);
+        user_1.setPassword(password);
+
+        myRealm.commitTransaction();
     }
 
     void init() {
@@ -91,6 +119,15 @@ public class Signup extends AppCompatActivity {
         bt_signup.setTypeface(MontLight);
         forgotPassword.setTypeface(MontUltraLight);
         disclaimer.setTypeface(MontUltraLight);
+    }
+
+    void initializeRealm() {
+        myRealm =
+                Realm.getInstance(
+                        new RealmConfiguration.Builder(getApplicationContext())
+                                .name("myOtherRealm.realm")
+                                .build()
+                );
     }
 
     void facebookLogin() {

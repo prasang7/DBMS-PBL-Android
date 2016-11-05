@@ -16,6 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fittect1.R;
+import com.fittect1.model.User;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * Created by prasang on 20/6/16.
@@ -27,6 +31,8 @@ public class Login extends AppCompatActivity {
     EditText et_email, et_password;
     Button bt_login;
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,7 @@ public class Login extends AppCompatActivity {
         init();
 
         setFonts();
+
 
         ib_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +56,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +65,11 @@ public class Login extends AppCompatActivity {
     }
 
     void login() {
+
         Toast.makeText(Login.this, "Login pressed!", Toast.LENGTH_SHORT).show();
+
+
+
         startActivity(new Intent(Login.this, LandingPage.class));
     }
 
